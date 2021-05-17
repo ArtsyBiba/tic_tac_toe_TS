@@ -13,6 +13,13 @@ body,
 	height: 100%;
 }
 
+#root {
+	flex-direction: column;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
 code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
