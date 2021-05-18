@@ -1,9 +1,7 @@
 import { FC, useState } from 'react';
 import styled from 'styled-components';
 
-import { Cell } from './Cell';
-
-type CellValue = 'x' | 'o' | undefined;
+import { Cell, CellValue } from './Cell';
 
 type Winner = CellValue | 'tie';
 
@@ -18,7 +16,12 @@ export const Board: FC<BoardProps> = ({ onGameEnd }) => {
     <BoardWrapper>
         {
             cells.map((cell, i) => (
-                <Cell key={i} /> 
+                <Cell 
+                    key={i}
+                    value={cell}
+                    index={i}
+                    toggle={() => {}}
+                /> 
             ))
         }
     </BoardWrapper>
