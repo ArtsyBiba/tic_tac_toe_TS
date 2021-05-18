@@ -1,10 +1,10 @@
 import styled from 'styled-components';
-import Board from './Components/Board';
+import { Board } from './Components/Board';
 
 export default function App() {
   return (
     <BoardContainer>
-      <Board />
+      <Board onGameEnd={() => {}} />
     </BoardContainer>
   );
 }

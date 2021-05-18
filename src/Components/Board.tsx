@@ -1,16 +1,29 @@
+import { FC, useState } from 'react';
 import styled from 'styled-components';
 
-export default function App() {
-  return (
-    <Board>
-        <Cell />
-        <Cell />
-        <Cell />
-    </Board>
+type CellValue = 'x' | 'o' | undefined;
+
+type Winner = CellValue | 'tie';
+
+type BoardProps = {
+    onGameEnd(winner: Winner): void;
+}
+
+export const Board: FC<BoardProps> = ({ onGameEnd }) => {
+    const [cells, setCells] = useState<CellValue[]>(Array(9).fill(undefined));    
+    
+    return (
+    <BoardWrapper>
+        {
+            cells.map((cell, i) => (
+                <Cell /> 
+            ))
+        }
+    </BoardWrapper>
   );
 }
 
-const Board = styled.div`
+const BoardWrapper = styled.div`
   background-color: #999999;
   width: 100%;
   height: 100%;
