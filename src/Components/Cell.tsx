@@ -9,15 +9,21 @@ type CellProps = {
     index: number;
 }
 
-export const Cell: FC<CellProps> = () => {
+export const Cell: FC<CellProps> = ({ value, toggle, index }) => {
 
     return (
-        <CellContainer>
-            
+        <CellContainer onClick={() => toggle(index)}>
+            {
+                value === 'o' ? "O" : value ? "X" : null
+            }
         </CellContainer>
     )
 }
 
-const CellContainer = styled.div`
+const CellContainer = styled.button`
   background-color: #ffff;
+  margin-bottom: -1px;
+  border: none;
+  cursor: pointer;
+  outline: none;
 `;

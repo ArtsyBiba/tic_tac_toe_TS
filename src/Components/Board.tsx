@@ -10,8 +10,14 @@ type BoardProps = {
 }
 
 export const Board: FC<BoardProps> = ({ onGameEnd }) => {
-    const [cells, setCells] = useState<CellValue[]>(Array(9).fill(undefined));    
+    const [cells, setCells] = useState<CellValue[]>(Array(9).fill(undefined));
     
+    const currentShape: CellValue = cells.filter(n => n).length % 2 ? 'o' : 'x';
+    
+    const toggleCell = (index: number) => {
+        setCells(cells => cells.map((c, i) => i === index ? currentShape : c));
+    };
+
     return (
     <BoardWrapper>
         {
@@ -20,7 +26,7 @@ export const Board: FC<BoardProps> = ({ onGameEnd }) => {
                     key={i}
                     value={cell}
                     index={i}
-                    toggle={() => {}}
+                    toggle={toggleCell}
                 /> 
             ))
         }
