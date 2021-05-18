@@ -1,6 +1,8 @@
 import { FC, useState } from 'react';
 import styled from 'styled-components';
 
+import { Cell } from './Cell';
+
 type CellValue = 'x' | 'o' | undefined;
 
 type Winner = CellValue | 'tie';
@@ -16,7 +18,7 @@ export const Board: FC<BoardProps> = ({ onGameEnd }) => {
     <BoardWrapper>
         {
             cells.map((cell, i) => (
-                <Cell /> 
+                <Cell key={i} /> 
             ))
         }
     </BoardWrapper>
@@ -32,8 +34,4 @@ const BoardWrapper = styled.div`
   display: grid;
   column-gap: 6px;
   row-gap: 6px;
-`;
-
-const Cell = styled.div`
-  background-color: #ffff;
 `;
