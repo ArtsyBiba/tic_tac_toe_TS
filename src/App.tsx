@@ -1,7 +1,11 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 import { Board } from './Components/Board';
 
 export default function App() {
+  const [winner, setWinner] = useState<Winner>();
+  const [gameState, setGameState] = useState<GameState>('start');
+  
   return (
     <BoardContainer>
       <Board onGameEnd={() => {}} />
