@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { Cell, CellValue } from './Cell';
 
-type Winner = CellValue | 'tie';
+export type Winner = CellValue | 'tie';
 
 type BoardProps = {
     onGameEnd(winner: Winner): void;
