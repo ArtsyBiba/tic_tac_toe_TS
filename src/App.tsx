@@ -37,16 +37,19 @@ export default function App() {
   };
 
   return (
-    <BoardContainer animate={gameState}>
-      {renderBoard(gameState)}
-    </BoardContainer> 
+    <>
+      <Heading>TypeSript Tic-Tac-Toe</Heading>
+      <BoardContainer animate={gameState}>
+        {renderBoard(gameState)}
+      </BoardContainer> 
+    </>
   ); 
 }
 
 const variants = {
   hidden: { opacity: 0, scale: 0.8 },
   start: { opacity: 1, scale: 1, width: '200px', height: '100px', transition: { type: 'spring', duration: 0.8 } },
-  game: { opacity: 1, scale: 1, width: '500px', height: '500px', transition: { type: 'spring', duration: 0.8 } },
+  game: { opacity: 1, scale: 1, width: '400px', height: '400px', transition: { type: 'spring', duration: 0.8 } },
   reset: { opacity: 1, scale: 1, width: '350px', height: '300px', transition: { type: 'spring', duration: 0.8 } },
 };
 
@@ -61,4 +64,13 @@ const BoardContainer = styled(motion.div).attrs(() => ({
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+
+const Heading = styled.h1`
+  color: #fff;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2.5rem;
+  text-shadow: -3px 3px #00000066;
+  font-family: 'Varela Round';
 `;
