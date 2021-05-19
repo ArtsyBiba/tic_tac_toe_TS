@@ -2,6 +2,7 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import { Board, Winner } from './Components/Board';
 import { StartScreen } from './Components/StartScreen';
+import { ResetScreen } from './Components/ResetScreen';
 
 type GameState = 'start' | 'game' | 'reset';
 
@@ -13,13 +14,23 @@ export default function App() {
     setGameState('game');
   };
 
+  const onGameEnd = (winner: Winner) => {
+    setWinner(winner);
+    setGameState('reset');
+  };
+
+  const onReset = () => {
+    setWinner(undefined);
+    setGameState('game');
+  };
+
   return (
     <BoardContainer>
       {
         {
           start: <StartScreen onStart={onStart} />,
-          game: <Board onGameEnd={() => {}} />,
-          reset: <>Reset</>,
+          game: <Board onGameEnd={onGameEnd} />,
+          reset: <ResetScreen winner={winner} onReset={onReset} />,
         }[gameState]
       }
     </BoardContainer>
