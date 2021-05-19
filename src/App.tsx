@@ -24,15 +24,20 @@ export default function App() {
     setGameState('game');
   };
 
+  const renderBoard = (state: GameState) => {
+    switch (state) {
+      case 'start':
+        return <StartScreen onStart={onStart} />;
+      case 'game':
+        return <Board onGameEnd={onGameEnd} />;
+      case 'reset':
+        return <ResetScreen winner={winner} onReset={onReset} />;
+    }
+  };
+
   return (
     <BoardContainer>
-      {
-        {
-          start: <StartScreen onStart={onStart} />,
-          game: <Board onGameEnd={onGameEnd} />,
-          reset: <ResetScreen winner={winner} onReset={onReset} />,
-        }[gameState]
-      }
+      {renderBoard(gameState)}
     </BoardContainer>
   );
 }

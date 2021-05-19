@@ -9,8 +9,8 @@ type ResetScreenProps = {
 export const ResetScreen: FC<ResetScreenProps> = ({ onReset, winner }) => {
     return (
         <>
-        <div>The winner is {winner}</div>
-        <button onClick={onReset}>Reset</button>
+            <h2>The winner is {winner}</h2>
+            <button onClick={onReset}>Reset</button>
         </>
     )
 }
