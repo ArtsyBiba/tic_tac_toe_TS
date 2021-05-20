@@ -64,6 +64,7 @@ const BoardContainer = styled(motion.div).attrs(() => ({
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 `;
 
 const Heading = styled.h1`

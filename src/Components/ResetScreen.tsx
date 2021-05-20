@@ -1,5 +1,7 @@
 import { FC } from 'react';
+import styled from 'styled-components';
 import { Winner } from './Board';
+import { StartButton } from './StartButton';
 
 type ResetScreenProps = {
     onReset(): void;
@@ -9,8 +11,15 @@ type ResetScreenProps = {
 export const ResetScreen: FC<ResetScreenProps> = ({ onReset, winner }) => {
     return (
         <>
-            <h2>The winner is {winner}</h2>
-            <button onClick={onReset}>Reset</button>
+            <WinnerHeading>The winner is {winner}</WinnerHeading>
+            <StartButton onClick={onReset}>Reset</StartButton>
         </>
     )
 }
+
+const WinnerHeading = styled.h2`
+  color: #333;
+  margin-top: 0;
+  font-size: 2.5rem;
+  font-family: 'Varela Round';
+`;
