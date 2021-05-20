@@ -7,4 +7,11 @@ export const StartButton = styled.button`
     font-weight: bold;
     color: #333;
     background: none;
+    border-radius: 20px;
+    padding: 0.5rem 1rem;
+
+    &:hover {
+        background-color: #979696;
+        color: #fff;
+    }
 `;

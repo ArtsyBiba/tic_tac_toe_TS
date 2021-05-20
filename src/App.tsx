@@ -1,9 +1,11 @@
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
+
 import { Board, Winner } from './Components/Board';
 import { StartScreen } from './Components/StartScreen';
 import { ResetScreen } from './Components/ResetScreen';
-import { motion } from 'framer-motion';
+import { TurnTracker } from './Components/TurnTracker'; 
 
 type GameState = 'start' | 'game' | 'reset';
 
@@ -42,6 +44,7 @@ export default function App() {
       <BoardContainer animate={gameState}>
         {renderBoard(gameState)}
       </BoardContainer> 
+      <TurnTracker />
     </>
   ); 
 }
@@ -49,8 +52,8 @@ export default function App() {
 const variants = {
   hidden: { opacity: 0, scale: 0.8 },
   start: { opacity: 1, scale: 1, width: '200px', height: '100px', transition: { type: 'spring', duration: 0.8 } },
-  game: { opacity: 1, scale: 1, width: '400px', height: '400px', transition: { type: 'spring', duration: 0.8 } },
-  reset: { opacity: 1, scale: 1, width: '350px', height: '300px', transition: { type: 'spring', duration: 0.8 } },
+  game: { opacity: 1, scale: 1, width: '350px', height: '350px', transition: { type: 'spring', duration: 0.8 } },
+  reset: { opacity: 1, scale: 1, width: '300px', height: '250px', transition: { type: 'spring', duration: 0.8 } },
 };
 
 const BoardContainer = styled(motion.div).attrs(() => ({
@@ -71,7 +74,7 @@ const Heading = styled.h1`
   color: #fff;
   text-align: center;
   margin-bottom: 30px;
-  font-size: 2.5rem;
+  font-size: 2rem;
   text-shadow: -3px 3px #00000066;
   font-family: 'Varela Round';
 `;
