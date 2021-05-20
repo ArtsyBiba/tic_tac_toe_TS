@@ -11,7 +11,12 @@ type ResetScreenProps = {
 export const ResetScreen: FC<ResetScreenProps> = ({ onReset, winner }) => {
     return (
         <>
-            <WinnerHeading>The winner is {winner}</WinnerHeading>
+            <WinnerHeading>
+                {winner === 'tie'
+                    ? 'It is a tie!'
+                    : `The winner is ${winner}`
+                }
+            </WinnerHeading>
             <StartButton onClick={onReset}>Reset</StartButton>
         </>
     )
